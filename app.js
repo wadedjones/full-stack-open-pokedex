@@ -1,11 +1,14 @@
-const express = require("express");
-const app = express();
+const express = require('express')
+require('dotenv').config()
+const app = express()
 
 // Heroku dynamically sets a port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 
-app.use(express.static("dist"));
+app.use(express.static('dist'))
 
 app.listen(PORT, () => {
-  console.log(`Server started on PORT ${PORT}`);
-});
+  /* eslint-disable no-console */
+  console.log(`Server started on PORT ${PORT}`)
+  /* es-lint-enable no-console */
+})
