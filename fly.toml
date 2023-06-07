@@ -20,9 +20,6 @@ primary_region = "lax"
 [deploy]
   release_command = "npm run build"
 
-[processes]
-  app = "node app.js"
-
 [build]
   [build.args]
     NODE_VERSION = "16.20.0"
