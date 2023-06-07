@@ -6,6 +6,17 @@
 app = "pokedex-site"
 primary_region = "lax"
 
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+
 [deploy]
   release_command = "npm run build"
 
@@ -15,8 +26,3 @@ primary_region = "lax"
 [build]
   [build.args]
     NODE_VERSION = "16.20.0"
-
-[[services]]
-  http_checks = []
-  internal_port = 8080
-  processes = ["app"]
